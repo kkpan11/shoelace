@@ -1,3 +1,4 @@
+/* eslint-disable lit-a11y/accessible-name */
 import '../../internal/scrollend-polyfill.js';
 
 import { AutoplayController } from './autoplay-controller.js';
@@ -633,10 +634,7 @@ export default class SlCarousel extends ShoelaceElement {
                       id="tab-${index + 1}"
                       aria-controls="slide-${index + 1}"
                       aria-selected="${isActive ? 'true' : 'false'}"
-                      ${isActive
-                        ? ''
-                        : `aria-label="${this.localize.term('goToSlide', index + 1)}"`
-                      }
+                      ${isActive ? '' : `aria-label="${this.localize.term('goToSlide', index + 1, pagesCount)}"`}
                       tabindex=${isActive ? '0' : '-1'}
                       @click=${() => this.goToSlide(index * slidesPerMove)}
                       @keydown=${this.handleKeyDown}
